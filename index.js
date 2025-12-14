@@ -5,6 +5,11 @@ const connectdb = require("./config/db");
 dotenv.config();
 connectdb();
 const app = express();
+const cors = require("cors");
+app.use(cors({
+  origin: true, // Your Vite dev server port
+  credentials: true
+}));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
